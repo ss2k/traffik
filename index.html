@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Traffik</title>
+    <link rel="stylesheet" href="css/flatly_bootstrap.css">
+    <link rel="stylesheet" href="css/bootswatch.min.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+  <div class="jumbotron">
+    <h2>Welkome to Traffik</h2>
+    <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <!-- <p><a class="btn btn-primary btn-lg">Learn more</a></p> -->
+  </div>
+  <div class = "tab-panels">
+    <ul class="nav nav-tabs">
+      <li class = "active"><a href="#userlist" data-toggle="tab">User List</a></li>
+      <li><a href="#sitemap" data-toggle="tab">Site Map</a></li>
+      <li><a href="#graphicalinfo" data-toggle="tab">Graphical Info</a></li>
+      <!-- <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          Dropdown <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#dropdown1" data-toggle="tab">Action</a></li>
+          <li class="divider"></li>
+          <li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
+        </ul>
+      </li> -->
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="userlist">
+        <table class="table table-striped table-hover ">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Session Id</th>
+              <th>IP Address</th>
+              <th>User's Site Location</th>
+              <th>User's Physical Location</th>
+              <th>More Info??</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr class="info">
+              <td>3</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr class="success">
+              <td>4</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr class="danger">
+              <td>5</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr class="warning">
+              <td>6</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr class="active">
+              <td>7</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+          </tbody>
+      </table> 
+      </div>
+
+      <div class="tab-pane" id="sitemap">
+        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+
+        <!-- <div class="modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <p>One fine body…</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+          </div> -->
+        </div>
+      <div class="tab-pane" id="graphicalinfo">
+        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+      </div>
+      <div class="tab-pane" id="dropdown2">
+        <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
+      </div>
+    </div>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+
+  <script type="text/javascript">
+  $(function () 
+  {
+  
+    //Listen for tab-links clicks
+    $('.tab-panels .nav.nav-tabs li').on('click', function (e)
+      { 
+      
+        //Find tab-panels clicked on
+        var panel = $(this).closest(".tab-panels");
+
+
+        var currActivePanelHref = panel.find('.nav.nav-tabs li.active').children('a').attr('href');
+        
+        var clickedPanelHref = $(this).children('a').attr('href');
+        
+        if (clickedPanelHref != currActivePanelHref)
+        {
+
+          //Remove current active li tab-link
+          panel.find('.nav.nav-tabs li.active').removeClass('active');
+          
+          //Add active to clicked on li tab-link
+          $(this).addClass('active');
+      
+          //1. Hide current active panel
+          panel.find('.tab-content .tab-pane.active').hide(0 
+            ,function ()
+            {
+              //3. Remove active class from current active panel
+              $(this).removeClass('active');
+              $(clickedPanelHref).fadeIn(100 
+                , function ()
+
+                {
+                  //4. Add active class to clicked on panel
+                  $(this).addClass('active');
+                }
+
+
+                );
+
+              
+              
+
+            }
+
+
+            );
+          
+        }
+      }
+    );}
+  );
+  </script>
+  </body>
+</html>
