@@ -2,11 +2,24 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
 
+  var userDataGlob = {};
+
   $(function() {
-    $(document).on('click', function(event){
-      console.log(event.target);
-    });
+
     var socket = io();
+    $(document).on('click', function(event){
+      //console.log(event.target.id);
+
+      //alert("clicked");
+      socket.emit('adminMessage', userDataGlob);
+
+    });
+
+    $(".offerClass").click(function() {
+      console.log($(this).id);
+    });
+
+    
     var adminsocket = io('/adminchannel');
     adminsocket.on('user left', function(userData){
       console.log(userData.sid + ' has left.');
@@ -23,12 +36,13 @@
       var val = " User with session id " + userData.sid + " and with socket id " + userData.socketID + " has navigated to " + userData.page;
 
       //panel.innerText = val;
-      socket.emit('adminMessage', userData);
+      userDataGlob = userData;
+      //socket.emit('adminMessage', userData);
 
       var list = $('<ul/>').appendTo('#panel');
       //list.append('<li>' + val + <button type="button">Send</button> + '</li>');
 
-      $("#panel ul").append('<li> ' + val + ' <button type="button">Send Offer</button></li>');
+      $("#panel ul").append('<li> ' + val + ' <button type="button" class="offerClass" id="' + userData.socketID + '">Send Offer</button></li>');
     });
   });
 </script>

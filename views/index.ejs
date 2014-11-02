@@ -11,6 +11,7 @@
     }
 
     socket.on('adminBroadcast', function(userData){
+      alert('Hey buy some shit' + userData.sid + ' ' + userData.socketID + ' ' + userData.page);
       console.log(userData.sid);
       console.log(userData.socketID);
       console.log(userData.page);
