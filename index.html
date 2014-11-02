@@ -8,6 +8,10 @@
   }
 
   socket.emit('pageChange', userData);
+  socket.on('offer', function(message){
+    console.log(message);
+    alert(message);
+  });
 </script>
 <html>
 <body>

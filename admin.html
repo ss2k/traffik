@@ -1,6 +1,8 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
   var socket = io();
+  var clients = findClientsSocket();
+  alert(clients);
   socket.on('pageChange', function(userData){
     var panel = document.getElementById('panel');
     panel.innerText = " User has navigated to " + userData.page;
