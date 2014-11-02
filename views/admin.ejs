@@ -1,0 +1,43 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+
+  $(function() {
+    $(document).on('click', function(event){
+      console.log(event.target);
+    });
+    var socket = io();
+    var adminsocket = io('/adminchannel');
+    adminsocket.on('user left', function(userData){
+      console.log(userData.sid + ' has left.');
+    });
+
+    adminsocket.on('initAdmin', function(clientIDs){
+      console.log(clientIDs);
+    });
+
+    adminsocket.on('alertAdmin', function(userData){
+      console.log(userData.clientIDs);
+      var panel = document.getElementById('panel');
+
+      var val = " User with session id " + userData.sid + " and with socket id " + userData.socketID + " has navigated to " + userData.page;
+
+      //panel.innerText = val;
+      socket.emit('adminMessage', userData);
+
+      var list = $('<ul/>').appendTo('#panel');
+      //list.append('<li>' + val + <button type="button">Send</button> + '</li>');
+
+      $("#panel ul").append('<li> ' + val + ' <button type="button">Send Offer</button></li>');
+    });
+  });
+</script>
+<html>
+<body>
+  <h1>Admin Panel</h1>
+  <div id="panel" style="font-size: 45px;">
+      
+  </div>
+  
+</body>
+</html>
