@@ -1,0 +1,19 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  var currentURL = window.location.href;
+
+  var userData = {
+    page: currentURL
+  }
+
+  socket.emit('pageChange', userData);
+</script>
+<html>
+<body>
+  <div id="device" style="font-size: 45px;">Your device does not have a gyroscope</div>
+    <a href="/about">About</a>
+  <br />
+  <a href="/">Home</a>
+</body>
+</html>
