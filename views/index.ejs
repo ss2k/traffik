@@ -1,0 +1,30 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  window.onload = function(){
+    var currentURL = window.location.href;
+    var userSID = document.getElementById('user_session_id').value;
+    var socket = io();
+
+    var userData = {
+      page: currentURL,
+      sid: userSID
+    }
+
+    socket.on('adminBroadcast', function(userData){
+      console.log(userData.sid);
+      console.log(userData.socketID);
+      console.log(userData.page);
+    });
+
+    socket.emit('pageChange', userData);
+  }
+</script>
+<html>
+<body>
+<input type="hidden" id="user_session_id" value="<%= a %>" />
+  <div id="device" style="font-size: 45px;">Device gyroscope</div>
+    <a href="/about">About</a>
+  <br />
+  <a href="/">Home</a>
+</body>
+</html>
